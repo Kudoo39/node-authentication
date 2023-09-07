@@ -1,4 +1,4 @@
-const LocalStrategy = requrie("passport-local").Strategy;
+const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
 const { serializeUser } = require("passport");
 
