@@ -1,6 +1,8 @@
 const express = require("express");
 const app = express();
 const bcrypt = require("bcrypt");
+const passport = require("passport");
+const initializePassport = require("./authentication");
 
 const users = [];
 
@@ -15,7 +17,7 @@ app.post("/register", async (req, res) => {
       email: req.body.email,
       password: hashedPassword,
     });
-
+    console.log(users);
     res.redirect("/login");
   } catch (error) {
     res.redirect("/register");
