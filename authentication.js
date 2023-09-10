@@ -13,13 +13,19 @@ function initialize(passport) {
     try {
       if (await bcrypt.compare(password, user.password)) {
         return done(null, user);
+      } else {
+        return done(null, false, {
+          message: "The password you entered was incorrect.",
+        });
       }
     } catch (error) {
       console.log(error);
       return done(error);
     }
   };
-  passport.use(new LocalStrategy({ usernameField: "email" }));
+  passport.use(
+    new LocalStrategy({ usernameField: "email" }, authenticateUsers)
+  );
   passport.serializeUser((user, done) => {});
   passport.deserializeUser((id, done) => {});
 }
