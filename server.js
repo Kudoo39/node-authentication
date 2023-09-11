@@ -59,7 +59,7 @@ app.post("/register", checkNotAuthenticated, async (req, res) => {
 });
 
 app.get("/", checkAuthenticated, (req, res) => {
-  res.render("index.ejs");
+  res.render("index.ejs", { name: req.user.name });
 });
 
 app.get("/login", checkNotAuthenticated, (req, res) => {
@@ -70,8 +70,8 @@ app.get("/register", checkNotAuthenticated, (req, res) => {
   res.render("register.ejs");
 });
 
-app.delete("logout", (req, res) => {
-  req.logOut(req.user, (err) => {
+app.delete("/logout", (req, res) => {
+  req.logout(req.user, (error) => {
     if (error) return next(error);
     res.redirect("/login");
   });
