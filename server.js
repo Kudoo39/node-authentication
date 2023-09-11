@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(flash());
 app.use(
   session({
-    secret: secretkey123,
+    secret: a3f6b8c1d492e0f7e9a217bdac71f25e5d0be95c0368d0a1b16e1745d32b7d6,
     resave: false,
     saveUninitialized: false,
   })
