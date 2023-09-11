@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(flash());
 app.use(
   session({
-    secret: process.env.SESSION_SECRET,
+    secret: secretkey123,
     resave: false,
     saveUninitialized: false,
   })
